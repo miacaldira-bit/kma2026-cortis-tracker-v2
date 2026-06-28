@@ -236,25 +236,18 @@ const overallRank =
 
 function updateCountdown() {
 
-    // Voting closes:
-    // 6 July 2026
-    // 23:59:59 Korea Time
-
     const closing = new Date("2026-07-06T23:59:59+09:00");
 
     const now = new Date();
 
     const diff = closing - now;
 
-    const dayBox = document.getElementById("countdownDays");
-    const timerBox = document.getElementById("countdownTimer");
+    const banner = document.getElementById("countdownBanner");
 
     if (diff <= 0) {
 
-        dayBox.textContent = "🏁";
-
-        timerBox.textContent =
-            "Voting Closed. Thank you for supporting CORTIS 💜";
+        banner.textContent =
+            "🏁 Voting Closed";
 
         return;
 
@@ -268,22 +261,19 @@ function updateCountdown() {
 
     const minutes = Math.floor((totalSeconds % 3600) / 60);
 
-    const seconds = totalSeconds % 60;
-
     if (days === 0) {
 
-        dayBox.textContent = "🔥 D-DAY";
+        banner.textContent =
+            `🔥 D-DAY • ${hours}h ${minutes}m remaining`;
 
     }
 
     else {
 
-        dayBox.textContent = `D-${days}`;
+        banner.textContent =
+            `⏳ D-${days} • ${days}d ${hours}h ${minutes}m remaining`;
 
     }
-
-    timerBox.textContent =
-        `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
 
 }
 
