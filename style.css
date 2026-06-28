@@ -318,7 +318,7 @@ h1{
 
 }
 
-.hero-badge{
+.heroTitle{
 
     display:inline-block;
 
@@ -338,7 +338,7 @@ h1{
 
 }
 
-.hero-number{
+.heroValue{
 
     font-size:4rem;
 
@@ -350,7 +350,7 @@ h1{
 
 }
 
-.hero-label{
+.heroSubtitle{
 
     font-size:1.15rem;
 
@@ -360,7 +360,7 @@ h1{
 
 }
 
-.hero-leader{
+.heroMessage{
 
     margin-top:22px;
 
