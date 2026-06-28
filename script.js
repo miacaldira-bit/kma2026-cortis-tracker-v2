@@ -507,3 +507,41 @@ function initializeFilters() {
     });
 
 }
+/* ===========================================
+   LOAD APPLICATION
+=========================================== */
+
+async function loadVotes() {
+
+    try {
+
+        const data = await fetchVotes();
+
+        buildGroups(data);
+
+        renderSummary();
+
+        renderTop3();
+
+        renderLeaderboard();
+
+        initializeFilters();
+
+        document.getElementById("updated").textContent =
+            "Updated " +
+            new Date().toLocaleTimeString();
+
+    }
+
+    catch (error) {
+
+        console.error(error);
+
+        document.getElementById("updated").textContent =
+            "Failed to load data.";
+
+    }
+
+}
+
+loadVotes();
