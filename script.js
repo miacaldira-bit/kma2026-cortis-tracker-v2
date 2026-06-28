@@ -229,6 +229,64 @@ const overallRank =
 
     const liveRank = getLiveRank("CORTIS");
 
+
+   /* ===========================================
+   COUNTDOWN
+=========================================== */
+
+function updateCountdown() {
+
+    // Voting closes:
+    // 6 July 2026
+    // 23:59:59 Korea Time
+
+    const closing = new Date("2026-07-06T23:59:59+09:00");
+
+    const now = new Date();
+
+    const diff = closing - now;
+
+    const dayBox = document.getElementById("countdownDays");
+    const timerBox = document.getElementById("countdownTimer");
+
+    if (diff <= 0) {
+
+        dayBox.textContent = "🏁";
+
+        timerBox.textContent =
+            "Voting Closed. Thank you for supporting CORTIS 💜";
+
+        return;
+
+    }
+
+    const totalSeconds = Math.floor(diff / 1000);
+
+    const days = Math.floor(totalSeconds / 86400);
+
+    const hours = Math.floor((totalSeconds % 86400) / 3600);
+
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+    const seconds = totalSeconds % 60;
+
+    if (days === 0) {
+
+        dayBox.textContent = "🔥 D-DAY";
+
+    }
+
+    else {
+
+        dayBox.textContent = `D-${days}`;
+
+    }
+
+    timerBox.textContent =
+        `${days}d ${hours}h ${minutes}m ${seconds}s remaining`;
+
+}
+
     /* ===========================
        Summary Cards
     =========================== */
@@ -524,6 +582,7 @@ async function loadVotes() {
         renderTop3();
 
         renderLeaderboard();
+       updateCountdown();
 
         initializeFilters();
 
@@ -545,5 +604,7 @@ async function loadVotes() {
 }
 
 loadVotes();
+
+setInterval(updateCountdown,1000);
 // Refresh every 60 seconds
 setInterval(loadVotes, 60000);
