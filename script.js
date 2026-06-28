@@ -282,14 +282,13 @@ const heroNumber = document.getElementById("heroNumber");
 const heroLabel = document.getElementById("heroLabel");
 const heroLeader = document.getElementById("heroLeader");
 const heroUpdated = document.getElementById("heroUpdated");
+    const heroTrend = document.getElementById("heroTrend");
 
 if (overallRank === 1) {
 
-    const second = sortedGroups[1];
+    const second = overall[1];
 
     const lead = cortis.total - second.total;
-   const heroTrend =
-    document.getElementById("heroTrend");
 
     heroCard.className = "card hero-card hero-green";
 
@@ -711,6 +710,6 @@ async function loadVotes() {
 
 loadVotes();
 
-setInterval(updateCountdown,1000);
+setInterval(updateCountdown,60000);
 // Refresh every 60 seconds
 setInterval(loadVotes, 60000);
