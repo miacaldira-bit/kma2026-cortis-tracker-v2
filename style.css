@@ -318,7 +318,7 @@ h1{
 
 }
 
-.heroTitle{
+.hero-title{
 
     display:inline-block;
 
@@ -338,7 +338,7 @@ h1{
 
 }
 
-.heroValue{
+.hero-value{
 
     font-size:4rem;
 
@@ -350,7 +350,7 @@ h1{
 
 }
 
-.heroSubtitle{
+.hero-subtitle{
 
     font-size:1.15rem;
 
@@ -360,7 +360,7 @@ h1{
 
 }
 
-.heroMessage{
+.hero-message{
 
     margin-top:22px;
 
