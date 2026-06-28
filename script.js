@@ -545,3 +545,5 @@ async function loadVotes() {
 }
 
 loadVotes();
+// Refresh every 60 seconds
+setInterval(loadVotes, 60000);
