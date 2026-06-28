@@ -313,11 +313,15 @@ function renderTop3() {
     const ranking =
         getSortedGroups(currentFilter).slice(0, 3);
 
-    const styles = [
-        "gold",
-        "silver",
-        "bronze"
-    ];
+   const styles = [
+
+    "podium-first",
+
+    "podium-small podium-second",
+
+    "podium-small podium-third"
+
+];
 
     const medals = [
         "🥇",
@@ -360,22 +364,22 @@ function renderTop3() {
             "beforeend",
 
             `
-            <div class="top3-card ${styles[index]}">
+            <div class="${styles[index]}">
 
-                <div class="top3-name">
+                <div class="podium-name">
 
                     ${medals[index]}
                     ${group.name}
 
                 </div>
 
-                <div class="top3-votes">
+                <div class="podium-votes">
 
                     ${votes.toLocaleString()}
 
                 </div>
 
-                <div class="top3-gap">
+                <div class="podium-gap">
 
                     ${gapText}
 
