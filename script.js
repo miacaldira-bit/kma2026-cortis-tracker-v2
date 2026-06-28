@@ -38,6 +38,7 @@ let currentFilter = "overall";
 let allGroups = [];
 
 let filtersInitialized = false;
+let previousGap = null;
 
 /* ===========================================
    FETCH LIVE DATA
@@ -274,6 +275,123 @@ const overallRank =
     ) + 1;
 
     const liveRank = getLiveRank("CORTIS");
+
+const heroCard = document.getElementById("heroCard");
+const heroBadge = document.getElementById("heroBadge");
+const heroNumber = document.getElementById("heroNumber");
+const heroLabel = document.getElementById("heroLabel");
+const heroLeader = document.getElementById("heroLeader");
+const heroUpdated = document.getElementById("heroUpdated");
+
+if (overallRank === 1) {
+
+    const second = sortedGroups[1];
+
+    const lead = cortis.total - second.total;
+   const heroTrend =
+    document.getElementById("heroTrend");
+
+    heroCard.className = "card hero-card hero-green";
+
+    heroBadge.textContent = "👑 CORTIS IS #1";
+
+    heroNumber.textContent =
+        "+" + lead.toLocaleString();
+
+    heroLabel.textContent =
+        "Votes Ahead";
+
+  heroTrend.className="hero-trend trend-good";
+heroTrend.textContent="👑 CORTIS is leading!";
+
+heroLeader.innerHTML=
+    "Keep defending the lead 💜";
+
+}
+else{
+
+    const gap = leader.total - cortis.total;
+   if(previousGap===null){
+
+    heroTrend.className="hero-trend trend-neutral";
+
+    heroTrend.textContent=
+        "Waiting for next refresh...";
+
+}
+else{
+
+    const diff=
+        previousGap-gap;
+
+    if(diff>0){
+
+        heroTrend.className="hero-trend trend-good";
+
+        heroTrend.textContent=
+            `🟢 Gap closed by ${diff.toLocaleString()} votes`;
+
+    }
+
+    else if(diff<0){
+
+        heroTrend.className="hero-trend trend-bad";
+
+        heroTrend.textContent=
+            `🔴 Gap widened by ${Math.abs(diff).toLocaleString()} votes`;
+
+    }
+
+    else{
+
+        heroTrend.className="hero-trend trend-neutral";
+
+        heroTrend.textContent=
+            "⚪ No change since last update";
+
+    }
+
+}
+
+previousGap=gap;
+
+    heroCard.className = "card hero-card hero-red";
+
+    heroBadge.textContent =
+        "🔥 CHASING #1";
+
+    heroNumber.textContent =
+        gap.toLocaleString();
+
+    heroLabel.textContent =
+        "Votes Needed";
+
+    heroLeader.innerHTML =
+        `Current Leader<br><strong>${leader.name2}</strong>`;
+   const now = new Date();
+
+const formatted =
+    now.toLocaleString("en-MY",{
+
+        day:"2-digit",
+
+        month:"short",
+
+        year:"numeric",
+
+        hour:"2-digit",
+
+        minute:"2-digit",
+
+        second:"2-digit",
+
+        hour12:false
+
+    });
+
+heroUpdated.textContent =
+    `Updated: ${formatted}`;
+}
 
     /* ===========================
        Summary Cards
