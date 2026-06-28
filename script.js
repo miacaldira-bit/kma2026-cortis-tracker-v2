@@ -277,10 +277,10 @@ const overallRank =
     const liveRank = getLiveRank("CORTIS");
 
 const heroCard = document.getElementById("heroCard");
-const heroBadge = document.getElementById("heroBadge");
-const heroNumber = document.getElementById("heroNumber");
-const heroLabel = document.getElementById("heroLabel");
-const heroLeader = document.getElementById("heroLeader");
+const heroTitle = document.getElementById("heroTitle");
+const heroValue = document.getElementById("heroValue");
+const heroSubtitle = document.getElementById("heroSubtitle");
+const heroMessage = document.getElementById("heroMessage");
 const heroUpdated = document.getElementById("heroUpdated");
     const heroTrend = document.getElementById("heroTrend");
 
@@ -366,7 +366,7 @@ previousGap=gap;
         "Votes Needed";
 
     heroLeader.innerHTML =
-        `Current Leader<br><strong>${leader.name2}</strong>`;
+        `Current Leader<br><strong>${leader.name}</strong>`;
    const now = new Date();
 
 const formatted =
@@ -413,52 +413,6 @@ heroUpdated.textContent =
 
     document.getElementById("final").textContent =
         cortis.final.toLocaleString();
-
-    /* ===========================
-       Gap Card
-    =========================== */
-
-    if (overallRank === 1) {
-
-        const second = getSortedGroups("overall")[1];
-
-        const lead = cortis.total - second.total;
-
-        document.getElementById("gapTitle").textContent =
-            "👑 Overall Lead";
-
-        document.getElementById("gap").textContent =
-            lead.toLocaleString();
-
-        document.getElementById("gapGoal").textContent =
-            "Leading by " +
-            lead.toLocaleString() +
-            " votes";
-
-        document.getElementById("status").textContent =
-            "🟢 CORTIS is leading overall";
-
-    }
-
-    else {
-
-        const need = leader.total - cortis.total;
-
-        document.getElementById("gapTitle").textContent =
-            "🎯 Gap to #1";
-
-        document.getElementById("gap").textContent =
-            need.toLocaleString();
-
-        document.getElementById("gapGoal").textContent =
-            "Need " +
-            need.toLocaleString() +
-            " votes";
-
-        document.getElementById("status").textContent =
-            "🔥 Catch " + leader.name;
-
-    }
 
 }
 
