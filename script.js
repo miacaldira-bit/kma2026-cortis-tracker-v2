@@ -357,7 +357,7 @@ previousGap=gap;
     heroCard.className = "card hero-card hero-red";
 
     heroTitle.textContent =
-        "🔥 CHASING #1";
+        "🔥 GAP TO OVERALL #1";
 
     heroValue.textContent =
         gap.toLocaleString();
