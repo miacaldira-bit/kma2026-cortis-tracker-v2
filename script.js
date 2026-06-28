@@ -209,28 +209,7 @@ function getLiveRank(name) {
         ) + 1;
 
 }
-
-/* ===========================================
-   SUMMARY
-=========================================== */
-
-function renderSummary() {
-
-    const cortis = getCortis();
-
-   const overall = getSortedGroups("overall");
-
-const leader = overall[0];
-
-const overallRank =
-    overall.findIndex(
-        group => group.name === "CORTIS"
-    ) + 1;
-
-    const liveRank = getLiveRank("CORTIS");
-
-
-   /* ===========================================
+ /* ===========================================
    COUNTDOWN
 =========================================== */
 
@@ -276,6 +255,25 @@ function updateCountdown() {
     }
 
 }
+
+/* ===========================================
+   SUMMARY
+=========================================== */
+
+function renderSummary() {
+
+    const cortis = getCortis();
+
+   const overall = getSortedGroups("overall");
+
+const leader = overall[0];
+
+const overallRank =
+    overall.findIndex(
+        group => group.name === "CORTIS"
+    ) + 1;
+
+    const liveRank = getLiveRank("CORTIS");
 
     /* ===========================
        Summary Cards
