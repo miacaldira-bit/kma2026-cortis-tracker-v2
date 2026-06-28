@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>CORTIS KMA 2026 Tracker</title>
+
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- =======================================
+         HEADER
+    ======================================== -->
+
+    <header>
+
+        <h1>🏆 CORTIS KMA 2026 Tracker</h1>
+
+        <p class="subtitle">
+
+            Live Overall Ranking Tracker
+
+        </p>
+
+    </header>
+
+    <!-- =======================================
+         TARGET CARD
+    ======================================== -->
+
+    <section class="card">
+
+        <h2 id="gapTitle">
+
+            🎯 Target
+
+        </h2>
+
+        <div class="big-number"
+             id="gap">
+
+            0
+
+        </div>
+
+        <p id="gapGoal">
+
+            Loading...
+
+        </p>
+
+        <small id="status">
+
+            Loading...
+
+        </small>
+
+    </section>
+
+    <!-- =======================================
+         OVERALL SUMMARY
+    ======================================== -->
+
+    <section class="card">
+
+        <h2>
+
+            🏆 Overall
+
+        </h2>
+
+        <div class="big-number"
+             id="overallTotal">
+
+            0
+
+        </div>
+
+        <div class="rank-row">
+
+            <div class="rank-box">
+
+                <span>
+
+                    Overall Rank
+
+                </span>
+
+                <strong id="overallRank">
+
+                    #0
+
+                </strong>
+
+            </div>
+
+            <div class="rank-box">
+
+                <span>
+
+                    Final Rank
+
+                </span>
+
+                <strong id="liveRank">
+
+                    #0
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =======================================
+         BREAKDOWN
+    ======================================== -->
+
+    <section class="card">
+
+        <h2>
+
+            📊 Vote Breakdown
+
+        </h2>
+
+        <div class="stats">
+
+            <div class="stat">
+
+                <span>
+
+                    Session 1
+
+                </span>
+
+                <strong id="session1">
+
+                    0
+
+                </strong>
+
+            </div>
+
+            <div class="stat">
+
+                <span>
+
+                    Session 2
+
+                </span>
+
+                <strong id="session2">
+
+                    0
+
+                </strong>
+
+            </div>
+
+            <div class="stat">
+
+                <span>
+
+                    Final
+
+                </span>
+
+                <strong id="final">
+
+                    0
+
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- =======================================
+         FILTERS
+    ======================================== -->
+
+    <section class="card">
+
+        <h2>
+
+            🏅 Live Rankings
+
+        </h2>
+
+        <div class="filters">
+
+            <button class="filter active"
+                    data-filter="overall">
+
+                Overall
+
+            </button>
+
+            <button class="filter"
+                    data-filter="final">
+
+                Final
+
+            </button>
+
+            <button class="filter"
+                    data-filter="session1">
+
+                Session 1
+
+            </button>
+
+            <button class="filter"
+                    data-filter="session2">
+
+                Session 2
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- =======================================
+         TOP 3
+    ======================================== -->
+
+    <section class="card">
+
+        <h2>
+
+            🥇 Top 3
+
+        </h2>
+
+        <div id="top3Container">
+
+        </div>
+
+    </section>
+
+    <!-- =======================================
+         LEADERBOARD
+    ======================================== -->
+
+    <section class="card">
+
+        <h2>
+
+            📋 Leaderboard
+
+        </h2>
+
+        <div id="leaderboard">
+
+        </div>
+
+    </section>
+
+    <!-- =======================================
+         FOOTER
+    ======================================== -->
+
+    <footer class="footer">
+
+        <p id="updated">
+
+            Loading latest votes...
+
+        </p>
+
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
