@@ -292,18 +292,18 @@ if (overallRank === 1) {
 
     heroCard.className = "card hero-card hero-green";
 
-    heroBadge.textContent = "👑 CORTIS IS #1";
+    heroTitle.textContent = "👑 CORTIS IS #1";
 
-    heroNumber.textContent =
+    heroValue.textContent =
         "+" + lead.toLocaleString();
 
-    heroLabel.textContent =
+    heroSubtitle.textContent =
         "Votes Ahead";
 
   heroTrend.className="hero-trend trend-good";
 heroTrend.textContent="👑 CORTIS is leading!";
 
-heroLeader.innerHTML=
+heroMessage.innerHTML=
     "Keep defending the lead 💜";
 
 }
@@ -356,17 +356,15 @@ previousGap=gap;
 
     heroCard.className = "card hero-card hero-red";
 
-    heroBadge.textContent =
+    heroTitle.textContent =
         "🔥 CHASING #1";
 
-    heroNumber.textContent =
+    heroValue.textContent =
         gap.toLocaleString();
 
-    heroLabel.textContent =
+    heroSubtitle.textContent =
         "Votes Needed";
 
-    heroLeader.innerHTML =
-        `Current Leader<br><strong>${leader.name}</strong>`;
    const now = new Date();
 
 const formatted =
