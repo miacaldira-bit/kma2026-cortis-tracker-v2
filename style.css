@@ -425,6 +425,23 @@ h1{
     color:#94a3b8;
 
 }
+@keyframes pulseCountdown{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.03);
+    }
+
+}
+
+.countdown-main{
+
+    animation:pulseCountdown 2.5s infinite;
+
+}
 @media (max-width:480px){
 
     .podium{
