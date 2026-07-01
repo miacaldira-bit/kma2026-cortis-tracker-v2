@@ -108,22 +108,28 @@ function buildGroups(data) {
         const final =
             group.total_vote_count;
 
-        allGroups.push({
+     allGroups.push({
 
-            name,
+    name,
 
-            session1,
+    session1,
 
-            session2,
+    session2,
 
-            final,
+    final,
 
-            total:
-                session1 +
-                session2 +
-                final
+    total:
+        session1 +
+        session2 +
+        final,
 
-        });
+    my1pick: group.my1pick_vote_count,
+
+    idol: group.idol_vote_count,
+
+    upick: group.upick_vote_count
+
+});
 
     });
 
@@ -510,114 +516,61 @@ function renderTop3() {
 }
 
 /* ===========================================
-   LEADERBOARD
+   APP VOTES
 =========================================== */
 
-function renderLeaderboard() {
+function renderAppVotes() {
 
-    const leaderboard =
-        document.getElementById("leaderboard");
+    const container = document.getElementById("appVotes");
 
-    leaderboard.innerHTML = "";
+    container.innerHTML = "";
 
-    const ranking = getSortedGroups(currentFilter);
+    const groups = [
 
-    ranking.forEach((group, index) => {
+        "CORTIS",
 
-        const votes =
-            getVoteValue(group, currentFilter);
+        "LNGSHOT",
 
-        let medal = index + 1;
-        let rowClass = "";
+        "ALPHA DRIVE ONE"
 
-        if (index === 0) {
-            medal = "🥇";
-            rowClass = "gold";
-        }
+    ];
 
-        else if (index === 1) {
-            medal = "🥈";
-            rowClass = "silver";
-        }
+    groups.forEach(name => {
 
-        else if (index === 2) {
-            medal = "🥉";
-            rowClass = "bronze";
-        }
+        const group = allGroups.find(g => g.name === name);
 
-        if (group.name === "CORTIS") {
-            rowClass += " cortis";
-        }
+        if (!group) return;
 
-        leaderboard.insertAdjacentHTML(
+        container.insertAdjacentHTML(
 
             "beforeend",
 
             `
-            <div class="rank-item ${rowClass}">
+            <div class="app-row">
 
-                <div class="rank-left">
-
-                    <div class="rank-number">
-
-                        ${medal}
-
-                    </div>
-
-                    <div>
-
-                        <div class="rank-name">
-
-                            ${group.name}
-
-                        </div>
-
-                    </div>
-
+                <div class="app-name">
+                    ${group.name}
                 </div>
 
-                <div class="rank-votes">
+                <div class="app-value">
+                    ${group.my1pick.toLocaleString()}
+                </div>
 
-                    ${votes.toLocaleString()}
+                <div class="app-value">
+                    ${group.idol.toLocaleString()}
+                </div>
 
+                <div class="app-value">
+                    ${group.upick.toLocaleString()}
+                </div>
+
+                <div class="app-value app-total">
+                    ${group.final.toLocaleString()}
                 </div>
 
             </div>
             `
-
         );
-
-    });
-
-}
-
-function initializeFilters() {
-
-    if (filtersInitialized)
-        return;
-
-    filtersInitialized = true;
-
-    document.querySelectorAll(".filter").forEach(button => {
-
-        button.addEventListener("click", () => {
-
-            document
-                .querySelectorAll(".filter")
-                .forEach(btn =>
-                    btn.classList.remove("active")
-                );
-
-            button.classList.add("active");
-
-            currentFilter =
-                button.dataset.filter;
-
-            renderTop3();
-
-            renderLeaderboard();
-
-        });
 
     });
 
@@ -638,7 +591,7 @@ async function loadVotes() {
 
         renderTop3();
 
-        renderLeaderboard();
+       renderAppVotes();
        updateCountdown();
 
         initializeFilters();
