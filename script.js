@@ -566,10 +566,19 @@ function renderAppVotes() {
     .filter(Boolean);
 
     const leaders = {
-        my1pick: Math.max(...groups.map(g => g.my1pick)),
-        idol: Math.max(...groups.map(g => g.idol)),
-        upick: Math.max(...groups.map(g => g.upick))
+    my1pick: Math.max(...groups.map(g => g.my1pick)),
+    idol: Math.max(...groups.map(g => g.idol)),
+    upick: Math.max(...groups.map(g => g.upick)),
+    total: Math.max(...groups.map(g => g.total))
     };
+
+   const totalGap = leaders.total - group.total;
+const groups = [...allGroups]
+    .filter(group =>
+        ["CORTIS", "LNGSHOT", "ALPHA DRIVE ONE"]
+        .includes(group.name)
+    )
+    .sort((a, b) => b.total - a.total);
 
     groups.forEach(group => {
 
