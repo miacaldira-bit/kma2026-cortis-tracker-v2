@@ -562,7 +562,11 @@ function renderAppVotes() {
         ["CORTIS", "LNGSHOT", "ALPHA DRIVE ONE"]
             .includes(group.name)
     )
-    .sort((a, b) => b.total - a.total);
+   .sort(
+    (a, b) =>
+        (b.my1pick + b.idol + b.upick) -
+        (a.my1pick + a.idol + a.upick)
+);
 
     const leaders = {
     my1pick: Math.max(...groups.map(g => g.my1pick)),
