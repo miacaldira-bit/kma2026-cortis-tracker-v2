@@ -558,51 +558,85 @@ function renderAppVotes() {
     container.innerHTML = "";
 
     const groups = [
-
         "CORTIS",
-
         "LNGSHOT",
-
         "ALPHA DRIVE ONE"
+    ]
+    .map(name => allGroups.find(g => g.name === name))
+    .filter(Boolean);
 
-    ];
+    const leaders = {
+        my1pick: Math.max(...groups.map(g => g.my1pick)),
+        idol: Math.max(...groups.map(g => g.idol)),
+        upick: Math.max(...groups.map(g => g.upick))
+    };
 
-    groups.forEach(name => {
+    groups.forEach(group => {
 
-        const group = allGroups.find(g => g.name === name);
+        const myGap = leaders.my1pick - group.my1pick;
+        const idolGap = leaders.idol - group.idol;
+        const upickGap = leaders.upick - group.upick;
 
-        if (!group) return;
+        container.insertAdjacentHTML("beforeend", `
 
-        container.insertAdjacentHTML(
+        <div class="app-row">
 
-            "beforeend",
+            <div class="app-name">
+                ${group.name}
+            </div>
 
-            `
-            <div class="app-row">
+            <div class="app-value">
 
-                <div class="app-name">
-                    ${group.name}
-                </div>
+                ${group.my1pick === leaders.my1pick ? "👑" : ""}
+                ${group.my1pick.toLocaleString()}
 
-                <div class="app-value">
-                    ${group.my1pick.toLocaleString()}
-                </div>
-
-                <div class="app-value">
-                    ${group.idol.toLocaleString()}
-                </div>
-
-                <div class="app-value">
-                    ${group.upick.toLocaleString()}
-                </div>
-
-                <div class="app-value app-total">
-                    ${group.final.toLocaleString()}
+                <div class="gap">
+                    ${
+                        myGap === 0
+                        ? "Leader"
+                        : "-" + myGap.toLocaleString()
+                    }
                 </div>
 
             </div>
-            `
-        );
+
+            <div class="app-value">
+
+                ${group.idol === leaders.idol ? "👑" : ""}
+                ${group.idol.toLocaleString()}
+
+                <div class="gap">
+                    ${
+                        idolGap === 0
+                        ? "Leader"
+                        : "-" + idolGap.toLocaleString()
+                    }
+                </div>
+
+            </div>
+
+            <div class="app-value">
+
+                ${group.upick === leaders.upick ? "👑" : ""}
+                ${group.upick.toLocaleString()}
+
+                <div class="gap">
+                    ${
+                        upickGap === 0
+                        ? "Leader"
+                        : "-" + upickGap.toLocaleString()
+                    }
+                </div>
+
+            </div>
+
+            <div class="app-value app-total">
+                ${group.total.toLocaleString()}
+            </div>
+
+        </div>
+
+        `);
 
     });
 
