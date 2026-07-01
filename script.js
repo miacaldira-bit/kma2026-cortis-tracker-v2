@@ -514,6 +514,38 @@ function renderTop3() {
     });
 
 }
+/* ===========================================
+   FILTER BUTTONS
+=========================================== */
+
+function initializeFilters() {
+
+    if (filtersInitialized)
+        return;
+
+    filtersInitialized = true;
+
+    document.querySelectorAll(".filter").forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            document
+                .querySelectorAll(".filter")
+                .forEach(btn =>
+                    btn.classList.remove("active")
+                );
+
+            button.classList.add("active");
+
+            currentFilter = button.dataset.filter;
+
+            renderTop3();
+
+        });
+
+    });
+
+}
 
 /* ===========================================
    APP VOTES
