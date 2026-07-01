@@ -589,6 +589,80 @@ h1{
     animation:pulseCountdown 2.5s infinite;
 
 }
+
+/* ===========================================
+   APP VOTE TABLE
+=========================================== */
+
+.app-table{
+
+    width:100%;
+
+}
+
+.app-header,
+.app-row{
+
+    display:grid;
+
+    grid-template-columns:
+        1.8fr
+        1fr
+        1fr
+        1fr
+        1.2fr;
+
+    gap:10px;
+
+    align-items:center;
+
+}
+
+.app-header{
+
+    font-weight:700;
+
+    color:#38bdf8;
+
+    padding-bottom:12px;
+
+    border-bottom:2px solid #334155;
+
+    margin-bottom:10px;
+
+}
+
+.app-row{
+
+    padding:14px 0;
+
+    border-bottom:1px solid #334155;
+
+}
+
+.app-name{
+
+    font-weight:700;
+
+}
+
+.app-value{
+
+    text-align:right;
+
+    font-variant-numeric:tabular-nums;
+
+}
+
+.app-total{
+
+    color:#38bdf8;
+
+    font-weight:bold;
+
+}
+
+
 @media (max-width:480px){
 
     .podium{
@@ -623,5 +697,20 @@ h1{
         font-size:2rem;
 
     }
+    .app-header,
+.app-row{
+
+    grid-template-columns:
+        1.5fr
+        .9fr
+        .9fr
+        .9fr
+        1fr;
+
+    font-size:.82rem;
+
+    gap:6px;
+
+}
 
 }
