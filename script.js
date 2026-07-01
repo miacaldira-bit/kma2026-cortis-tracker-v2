@@ -631,7 +631,7 @@ function renderAppVotes() {
             </div>
 
             <div class="app-value app-total">
-                ${group.total.toLocaleString()}
+                ${group.final.toLocaleString()}
             </div>
 
         </div>
