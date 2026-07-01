@@ -661,7 +661,29 @@ h1{
     font-weight:bold;
 
 }
+.gap{
 
+    margin-top:4px;
+
+    font-size:.75rem;
+
+    color:#94a3b8;
+
+}
+
+.app-value{
+
+    text-align:right;
+
+    line-height:1.35;
+
+}
+
+.app-name{
+
+    font-weight:700;
+
+}
 
 @media (max-width:480px){
 
